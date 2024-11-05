@@ -108,6 +108,8 @@ public class WeatherServlet extends HttpServlet {
 		String city = request.getParameter("selectedCity");
 		logger.log(Level.FINE, "requested city is " + city);
 		
+		/***** Remove dynamic call
+		 
 		String weatherAPIKey = System.getenv(WEATHER_API_KEY);
 		String mockedKey = mockKey(weatherAPIKey);
 		logger.log(Level.FINE, "weatherAPIKey is " + mockedKey);
@@ -118,7 +120,11 @@ public class WeatherServlet extends HttpServlet {
 		} else {
 			logger.info("weatherAPIKey is not found, will provide the weather data dated August 10th, 2018 for the city " + city);
 			getDefaultWeatherData(city, response);
-		}
+		}	
+		 */
+		getDefaultWeatherData(city, response);
+
+		
     }
 
     private void getRealTimeWeatherData(String city, String apiKey, HttpServletResponse response) 
